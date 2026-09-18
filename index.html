@@ -1,108 +1,30 @@
 <!DOCTYPE html>
-<html lang="en"
-  class="h-100"
-  data-bs-theme="auto">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-  <title>Fediverse Sharing Button</title>
-  <meta name="description"
-    content="One of the current objections to Communism, and Socialism altogether, is that the idea is so old, and yet it has never been realized.">
-  <link rel="stylesheet"
-    href="./assets/libs/bootstrap/5.3.3/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="./fediverse-share-button/styles.min.css">
-  <style>
-    /* Demo page styles, not needed for the share button. */
-
-    .explainer {
-      font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
-      font-weight: normal;
-      font-size: 1.4rem;
-      -webkit-transform: rotate(-1deg);
-      -ms-transform: rotate(-1deg);
-      transform: rotate(-1deg);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-  </style>
-</head>
-
-<body class="d-flex flex-column h-100" data-bs-theme="dark">
-    <script>
-      const toggleDarkMode = (enabled) => {
-        if (enabled) {
-          document.body.setAttribute('data-bs-theme', 'dark');
-        } else {
-          document.body.setAttribute('data-bs-theme', 'light');
-        }
-      }
-
-      if (window.matchMedia) {
-        toggleDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-      }
-
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        toggleDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-      });
-    </script>
-  <main class="flex-shrink-0">
-    <div class="container">
-      <h1 class="mt-5 fw-bold">Fediverse Sharing Button</h1>
-      <p class="lead">Make it easy to share your website or a blog with the fediverse</p>
-      <ul class="mt-4">
-        <li>Minimalist design with no pop-ups</li>
-        <li>Remembers the last fediverse domain used</li>
-        <li>Supports several fediverse platform (<a
-            href="https://github.com/stefanbohacek/fediverse-share-button/#q-which-platforms-are-supported">see full
-            list</a>) and shows a matching logo</li>
-        <li>Open-source</li>
-      </ul>
-      <p class="explainer d-block mt-5 mb-3">Try it here ⤵</p>
-      <form class="fsb-prompt mt-0">
-        <label>Share this page from your <a href="https://jointhefediverse.net/">fediverse</a> server</label>
-        <div class="fsb-input-group mb-3">
-          <span class="fsb-input-group-text">https://</span>
-          <input required
-            type="text"
-            name="fediverse-domain"
-            placeholder="mastodon.social"
-            class="fsb-input fsb-domain"
-            aria-label="Server domain">
-          <button class="fsb-button"
-            type="submit"><img alt="Fediverse platform logo"
-              src="./fediverse-share-button/icons/mastodon.svg"
-              class="fsb-icon"></span>Share</button>
-        </div>
-        <p class="fsb-support-note fsb-d-none">This server does not support sharing. Please visit <a
-            class="fsb-support-note-link"
-            target="_blank"
-            href=""></a>.</p>
-      </form>
-
-      <p class="mt-5">
-        <a class="btn btn-dark"
-          href="https://github.com/stefanbohacek/fediverse-share-button/">Get the code</a>
-        <a class="btn btn-dark"
-          href="https://github.com/stefanbohacek/fediverse-share-button-wordpress/">Add to WordPress <sup>beta</sup></a>
-        <a class="btn btn-light"
-          href="https://stefanbohacek.com/project/fediverse-sharing-button/">Learn more</a>
-      </p>
-    </div>
-  </main>
-
-  <footer class="footer mt-auto py-3 bg-body-tertiary">
-    <div class="container">
-      <span class="text-body-secondary">Created by <a class="text-body-secondary"
-          href="https://stefanbohacek.com/">Stefan Bohacek</a>.</span>
-    </div>
-  </footer>
-  <script class="fsb-script"
-    src="./fediverse-share-button/script.min.js"
-    defer>
-    </script>
-</body>
-
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fediverse Sharing Button</title>
+        <link rel="stylesheet" href="./assets/share.css">
+    </head>
+    <body>
+        <main>
+            <h1>Fediverse Sharing Button</h1>
+            <noscript>
+                <article class="error">
+                    <h2>Sorry! This application only works with JavaScript enabled!</h2>
+                </article>
+            </noscript>
+            <div id="app">
+                <article class="invisible error"></article>
+                <p class="invisible">Type the URL of your instance in the text box below.</p>
+                <input class="invisible" type="url" id="instance" placeholder="https://mastodon.example"/>
+                <button class="invisible" onclick="share();">Share</button>
+            </div>
+            <footer>
+                <p>Originally created and developed by <a href="stefanbohacek.com">Stefan Bohacek</a></p>
+                <p>This is a custom fork heavily modifying the original project, please support the original author by donating <a href="https://stefanbohacek.com/support-my-work/">here</a></p>
+            </footer>
+            <script class="fsb-script" src="./assets/share.js" defer></script>
+        </main>
+    </body>
 </html>
